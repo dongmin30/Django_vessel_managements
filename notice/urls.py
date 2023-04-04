@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('insert/', views.InsertView.as_view(), name='insert'),
     path('insert/imocheck/', views.imoCheck, name='imoCheck'),
+    path('insert/createVessel/', views.createVessel, name='createVessel'),
 ]

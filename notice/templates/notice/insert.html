@@ -76,7 +76,7 @@
                     <label for="status" class="form-label">Status</label>
                     <select class="form-select" id="status" required>
                       <option value="0">Fail</option>
-                      <option value="1">Succes</option>
+                      <option value="1">Success</option>
                     </select>
                     <div class="invalid-feedback">
                       Please select a valid check Status.
@@ -92,17 +92,20 @@
                     > 
                     Check IMO number
                     </button>
-                <div>
-                <input id="checkImoYn" type="hidden" value="N" />
-                <div class="col-sm-5" style="margin-top: 10px;">
-                    <button
-                        class="btn btn-primary d-inline-flex align-items-center"
-                        type="button"
-                    > 
-                    Add vessel
-                    </button>
-                <div>
+                </div>
             </div>
+            <div class="row g-3">
+              <div class="col-sm-5" style="margin-top: 30px;">
+                  <button
+                      id="addVesselBtn"
+                      class="btn btn-primary align-items-center"
+                      type="button"
+                  > 
+                  Add vessel
+                  </button>
+              </div>
+            </div>
+            <input id="checkImoYn" type="hidden" value="N" />
         </form>
     </div>
     <script src="{% static 'notice/js/insert.js' %}"></script>
