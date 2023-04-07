@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+  <div class="bg-body-tertiary p-5 rounded">
+    <h1 class="h1">Insert Vessel</h1>
+    <form id="updateForm" action="{% url 'notice:update' vessel_detail.id %}" class="needs-validation" method="post" novalidate>
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="vesselName" class="form-label">Vessel name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="vesselName"
+            name="vesselName"
+            placeholder=""
+            value="{{ vessel_detail.ship_name }}"
+            required
+          />
+          <div class="invalid-feedback">Valid name is required.</div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="imoNumber" class="form-label">IMO number</label>
+          <input
+            type="number"
+            class="form-control"
+            id="imoNumber"
+            name="imoNumber"
+            placeholder=""
+            value="{{ vessel_detail.ship_IMO }}"
+            required
+          />
+          <div class="invalid-feedback">Valid IMO number is required.</div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder=""
+            value="{{ vessel_detail.ship_description }}"
+          />
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-5">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-select" id="status" name="status" required>
+            <option value="0" {% if vessel_detail.ship_status == 0 %} selected {% endif %}>Fail</option>
+            <option value="1" {% if vessel_detail.ship_status == 1 %} selected {% endif %}>Success</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid check Status.</div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-5" style="margin-top: 30px">
+          <button
+            id="imoCheckBtn"
+            class="btn btn-primary d-inline-flex align-items-center"
+            type="button"
+          >
+            Check IMO number
+          </button>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-5" style="margin-top: 30px">
+          <button
+            class="btn btn-primary align-items-center"
+            type="submit"
+          >
+            Update vessel
+          </button>
+        </div>
+      </div>
+      <input id="checkImoYn" type="hidden" value="N" />
+    </form>
+  </div>
+  <script src="{% static 'notice/js/detail.js' %}"></script>
+  {% endblock %}

@@ -55,7 +55,9 @@ ROOT_URLCONF = 'Django_notice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'notice/templates/notice'    
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
